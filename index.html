@@ -144,27 +144,51 @@
 <footer class="footer"><div class="wrap footer-inner"><span>© 2026 GSHS SPORTS DAY · STAFF GUIDE</span><span>본 페이지는 교직원 안내자료를 바탕으로 제작한 웹 안내 페이지입니다.</span></div></footer>
 <button class="top-btn" id="topBtn" aria-label="맨 위로">↑</button>
 <script>
-const progress=document.getElementById('progress'),nav=document.getElementById('nav'),topBtn=document.getElementById('topBtn');
-function onScroll(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';nav.classList.toggle('scrolled',scrollY>20);topBtn.classList.toggle('show',scrollY>500)}
-addEventListener('scroll',onScroll,{passive:true});onScroll();
-/* 스크롤 진입 시 나타나고, 화면에서 멀어지면 다시 투명해집니다. */
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-  const el=entry.target;
-  if(entry.isIntersecting){
-    el.classList.add('visible');
-    el.classList.remove('fade-away');
-  }else{
-    const rect=el.getBoundingClientRect();
-    if(rect.bottom<0 || rect.top>innerHeight){
-      el.classList.remove('visible');
-      el.classList.add('fade-away');
+(() => {
+  const reduceMotion =
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion) return;
+
+  let targetY = window.scrollY;
+  let currentY = window.scrollY;
+  let frame = null;
+
+  window.addEventListener('wheel', (event) => {
+    if (event.ctrlKey) return;
+
+    targetY += event.deltaY;
+    targetY = Math.max(
+      0,
+      Math.min(
+        targetY,
+        document.documentElement.scrollHeight - window.innerHeight
+      )
+    );
+
+    if (!frame) animate();
+  }, { passive: true });
+
+  function animate() {
+    currentY += (targetY - currentY) * 0.12;
+
+    if (Math.abs(targetY - currentY) < 0.5) {
+      window.scrollTo(0, targetY);
+      currentY = targetY;
+      frame = null;
+      return;
     }
+
+    window.scrollTo(0, currentY);
+    frame = requestAnimationFrame(animate);
   }
-}),{threshold:0.08,rootMargin:'-4% 0px -4% 0px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-const menuBtn=document.getElementById('menuBtn'),links=document.getElementById('navLinks');
-menuBtn.addEventListener('click',()=>{const open=links.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});
-links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
-topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
-</script>
+
+  window.addEventListener('scroll', () => {
+    if (!frame) {
+      currentY = window.scrollY;
+      targetY = window.scrollY;
+    }
+  }, { passive: true });
+})();
+</script>  
 </body></html>
