@@ -13,6 +13,27 @@
 /* 화면을 벗어나는 콘텐츠는 다시 부드럽게 흐려지고 사라집니다. */
 .reveal.fade-away{opacity:0;transform:translateY(-22px) scale(.985);filter:blur(5px)}
 .delay1{transition-delay:.1s}.delay2{transition-delay:.2s}.delay3{transition-delay:.3s}
+.reveal {
+  opacity: 0;
+  transform: translateY(34px) scale(.985);
+  filter: blur(5px);
+  transition:
+    opacity .85s ease,
+    transform .85s ease,
+    filter .85s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.reveal.fade-away {
+  opacity: 0;
+  transform: translateY(-22px) scale(.985);
+  filter: blur(5px);
+}
 @media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero-art{min-height:250px;position:absolute;right:-40px;top:130px;opacity:.32;pointer-events:none}.hero-copy{position:relative;z-index:2}.hero h1{font-size:clamp(4rem,15vw,7rem)}.stats,.teams{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(4,1fr);row-gap:25px}.timeline:before{display:none}.schedule{grid-template-columns:1fr}.sports-grid{grid-template-columns:repeat(2,1fr)}.role-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:18px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;padding:18px 24px 24px;background:#10151b;flex-direction:column;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.menu-btn{display:block}}
 @media(max-width:540px){.wrap{width:min(100% - 32px,var(--max))}.nav-inner{padding:13px 16px}.hero{min-height:88vh;padding-top:125px}.hero h1{font-size:clamp(3.6rem,17vw,5.4rem)}section{padding:78px 0}.stats{gap:8px}.stat{padding:17px}.teams{gap:9px}.team{padding:17px;min-height:230px}.team-letter{font-size:3.3rem}.team h3{font-size:1.15rem}.timeline{grid-template-columns:repeat(2,1fr)}.sports-grid{grid-template-columns:1fr}.event{grid-template-columns:94px 1fr;gap:10px}.safety{grid-template-columns:1fr}.checklist{grid-template-columns:1fr}.footer-inner{display:block}.footer-inner span{display:block;margin-top:6px}.hero-date{align-items:flex-start}.orb{width:250px}.closing{padding:75px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}.reveal,.reveal.fade-away{opacity:1;transform:none;filter:none}}
@@ -143,52 +164,5 @@
 </main>
 <footer class="footer"><div class="wrap footer-inner"><span>© 2026 GSHS SPORTS DAY · STAFF GUIDE</span><span>본 페이지는 교직원 안내자료를 바탕으로 제작한 웹 안내 페이지입니다.</span></div></footer>
 <button class="top-btn" id="topBtn" aria-label="맨 위로">↑</button>
-<script>
-(() => {
-  const reduceMotion =
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (reduceMotion) return;
-
-  let targetY = window.scrollY;
-  let currentY = window.scrollY;
-  let frame = null;
-
-  window.addEventListener('wheel', (event) => {
-    if (event.ctrlKey) return;
-
-    targetY += event.deltaY;
-    targetY = Math.max(
-      0,
-      Math.min(
-        targetY,
-        document.documentElement.scrollHeight - window.innerHeight
-      )
-    );
-
-    if (!frame) animate();
-  }, { passive: true });
-
-  function animate() {
-    currentY += (targetY - currentY) * 0.12;
-
-    if (Math.abs(targetY - currentY) < 0.5) {
-      window.scrollTo(0, targetY);
-      currentY = targetY;
-      frame = null;
-      return;
-    }
-
-    window.scrollTo(0, currentY);
-    frame = requestAnimationFrame(animate);
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!frame) {
-      currentY = window.scrollY;
-      targetY = window.scrollY;
-    }
-  }, { passive: true });
-})();
-</script>  
+addEventListener('scroll', onScroll, {passive: true});  
 </body></html>
