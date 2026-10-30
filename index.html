@@ -17,7 +17,6 @@ html, body {
   color: var(--ink);
   font-family: Inter,"Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;
   line-height: 1.65;
-  /* Lenis 스크롤을 위한 설정 */
   height: auto;
 }
 a{color:inherit;text-decoration:none}
@@ -120,45 +119,9 @@ td:first-child{font-weight:750}
 .top-btn{position:fixed;right:22px;bottom:22px;z-index:90;border:1px solid var(--line);background:var(--lime);color:#10151b;border-radius:50%;width:46px;height:46px;font-weight:900;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s}
 .top-btn.show{opacity:1;pointer-events:auto;transform:translateY(0)}
 
-/* 페이드 인 / 아웃 효과 커스텀 애니메이션 */
-.reveal {
-  opacity: 0;
-  transform: translateY(35px) scale(0.98);
-  filter: blur(8px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, filter;
-}
-
-/* 화면에 등장했을 때 */
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
-}
-
-/* 화면 밖으로 지나쳐 멀어질 때 (상단으로 사라질 때) */
-.reveal.fade-away-top {
-  opacity: 0;
-  transform: translateY(-35px) scale(0.98);
-  filter: blur(8px);
-}
-
-/* 화면 밖으로 지나쳐 멀어질 때 (하단으로 사라질 때) */
-.reveal.fade-away-bottom {
-  opacity: 0;
-  transform: translateY(35px) scale(0.98);
-  filter: blur(8px);
-}
-
-.delay1{transition-delay:.1s}
-.delay2{transition-delay:.2s}
-.delay3{transition-delay:.3s}
-
 @media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero-art{min-height:250px;position:absolute;right:-40px;top:130px;opacity:.32;pointer-events:none}.hero-copy{position:relative;z-index:2}.hero h1{font-size:clamp(4rem,15vw,7rem)}.stats,.teams{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(4,1fr);row-gap:25px}.timeline:before{display:none}.schedule{grid-template-columns:1fr}.sports-grid{grid-template-columns:repeat(2,1fr)}.role-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:18px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;padding:18px 24px 24px;background:#10151b;flex-direction:column;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.menu-btn{display:block}}
 @media(max-width:540px){.wrap{width:min(100% - 32px,var(--max))}.nav-inner{padding:13px 16px}.hero{min-height:88vh;padding-top:125px}.hero h1{font-size:clamp(3.6rem,17vw,5.4rem)}section{padding:78px 0}.stats{gap:8px}.stat{padding:17px}.teams{gap:9px}.team{padding:17px;min-height:230px}.team-letter{font-size:3.3rem}.team h3{font-size:1.15rem}.timeline{grid-template-columns:repeat(2,1fr)}.sports-grid{grid-template-columns:1fr}.event{grid-template-columns:94px 1fr;gap:10px}.safety{grid-template-columns:1fr}.checklist{grid-template-columns:1fr}.footer-inner{display:block}.footer-inner span{display:block;margin-top:6px}.hero-date{align-items:flex-start}.orb{width:250px}.closing{padding:75px 0}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}.reveal,.reveal.fade-away-top,.reveal.fade-away-bottom{opacity:1;transform:none;filter:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -171,38 +134,38 @@ td:first-child{font-weight:750}
 <main>
 <section class="hero" id="home"><div class="wrap hero-grid">
 <div class="hero-copy">
-<div class="eyebrow reveal">Gyeonggi Science High School · 2026</div>
-<h1 class="reveal delay1">SPORTS<br><em>DAY.</em></h1>
-<p class="hero-sub reveal delay2">서로를 응원하고, 함께 뛰고, 하나가 되는 하루.<br>2026학년도 GSHS 스포츠한마당 교직원 안내</p>
-<div class="hero-date reveal delay3"><span class="date-mark">10.30 FRI</span><span>2026년 10월 30일(금)<br>본교 운동장 및 창조관</span></div>
+<div class="eyebrow">Gyeonggi Science High School · 2026</div>
+<h1>SPORTS<br><em>DAY.</em></h1>
+<p class="hero-sub">서로를 응원하고, 함께 뛰고, 하나가 되는 하루.<br>2026학년도 GSHS 스포츠한마당 교직원 안내</p>
+<div class="hero-date"><span class="date-mark">10.30 FRI</span><span>2026년 10월 30일(금)<br>본교 운동장 및 창조관</span></div>
 </div>
 <div class="hero-art" aria-hidden="true"><div class="orb"></div><div class="orbit-label">ONE TEAM, ONE DAY</div></div>
 </div><a class="scroll-hint" href="#overview">SCROLL TO EXPLORE</a></section>
 <section id="overview"><div class="wrap">
-<div class="section-head reveal"><div><div class="eyebrow">01 / Overview</div><h2>대회 한눈에 보기</h2></div><p>경쟁보다 협동, 승리보다 스포츠맨십. 모든 학생이 안전하고 즐겁게 참여할 수 있도록 함께 준비합니다.</p></div>
+<div class="section-head"><div><div class="eyebrow">01 / Overview</div><h2>대회 한눈에 보기</h2></div><p>경쟁보다 협동, 승리보다 스포츠맨십. 모든 학생이 안전하고 즐겁게 참여할 수 있도록 함께 준비합니다.</p></div>
 <div class="stats">
-<div class="stat reveal"><strong data-count="372">372</strong><span>전교생 · 명</span></div><div class="stat reveal delay1"><strong data-count="4">4</strong><span>참가 팀</span></div><div class="stat reveal delay2"><strong data-count="9">9</strong><span>경기 종목</span></div><div class="stat reveal delay3"><strong data-count="6">6</strong><span>스포츠 부스</span></div>
+<div class="stat"><strong data-count="372">372</strong><span>전교생 · 명</span></div><div class="stat"><strong data-count="4">4</strong><span>참가 팀</span></div><div class="stat"><strong data-count="9">9</strong><span>경기 종목</span></div><div class="stat"><strong data-count="6">6</strong><span>스포츠 부스</span></div>
 </div>
-<div style="margin-top:20px" class="reveal"><p style="color:var(--muted);font-size:.9rem">대상: 경기과학고등학교 교육공동체 · 팀 편성: 학년별 2개 학급씩 연합, 추첨으로 4개 팀 구성</p><p style="color:var(--lime);font-weight:800">원칙: 환자를 제외한 모든 학생은 최소 3개 종목 이상 선수로 참가합니다.</p></div>
+<div style="margin-top:20px"><p style="color:var(--muted);font-size:.9rem">대상: 경기과학고등학교 교육공동체 · 팀 편성: 학년별 2개 학급씩 연합, 추첨으로 4개 팀 구성</p><p style="color:var(--lime);font-weight:800">원칙: 환자를 제외한 모든 학생은 최소 3개 종목 이상 선수로 참가합니다.</p></div>
 </div></section>
 <section id="teams" style="background:#0c1116"><div class="wrap">
-<div class="section-head reveal"><div><div class="eyebrow">02 / Team Up</div><h2>우리 팀을 확인하세요</h2></div><p>캐치프레이즈는 「합」. 서로 다른 색깔의 네 팀이 함께 만드는 스포츠한마당입니다.</p></div>
+<div class="section-head"><div><div class="eyebrow">02 / Team Up</div><h2>우리 팀을 확인하세요</h2></div><p>캐치프레이즈는 「합」. 서로 다른 색깔의 네 팀이 함께 만드는 스포츠한마당입니다.</p></div>
 <div class="teams">
-<article class="team a reveal"><div class="team-top"><span>TEAM A</span><span>01 / 04</span></div><div><div class="team-letter">A.</div><h3>희로A락</h3><p>1학년 1-3 / 1-4<br>2학년 2-3 / 2-4<br>3학년 3-4 / 3-6</p></div></article>
-<article class="team b reveal delay1"><div class="team-top"><span>TEAM B</span><span>02 / 04</span></div><div><div class="team-letter">B.</div><h3>B교불가</h3><p>1학년 1-5 / 1-7<br>2학년 2-1 / 2-8<br>3학년 3-3 / 3-5</p></div></article>
-<article class="team c reveal delay2"><div class="team-top"><span>TEAM C</span><span>03 / 04</span></div><div><div class="team-letter">C.</div><h3>오이C</h3><p>1학년 1-1 / 1-6<br>2학년 2-2 / 2-7<br>3학년 3-1 / 3-7</p></div></article>
-<article class="team d reveal delay3"><div class="team-top"><span>TEAM D</span><span>04 / 04</span></div><div><div class="team-letter">D.</div><h3>하D캐리</h3><p>1학년 1-2 / 1-8<br>2학년 2-5 / 2-6<br>3학년 3-2 / 3-8</p></div></article>
+<article class="team a"><div class="team-top"><span>TEAM A</span><span>01 / 04</span></div><div><div class="team-letter">A.</div><h3>희로A락</h3><p>1학년 1-3 / 1-4<br>2학년 2-3 / 2-4<br>3학년 3-4 / 3-6</p></div></article>
+<article class="team b"><div class="team-top"><span>TEAM B</span><span>02 / 04</span></div><div><div class="team-letter">B.</div><h3>B교불가</h3><p>1학년 1-5 / 1-7<br>2학년 2-1 / 2-8<br>3학년 3-3 / 3-5</p></div></article>
+<article class="team c"><div class="team-top"><span>TEAM C</span><span>03 / 04</span></div><div><div class="team-letter">C.</div><h3>오이C</h3><p>1학년 1-1 / 1-6<br>2학년 2-2 / 2-7<br>3학년 3-1 / 3-7</p></div></article>
+<article class="team d"><div class="team-top"><span>TEAM D</span><span>04 / 04</span></div><div><div class="team-letter">D.</div><h3>하D캐리</h3><p>1학년 1-2 / 1-8<br>2학년 2-5 / 2-6<br>3학년 3-2 / 3-8</p></div></article>
 </div>
 </div></section>
 <section id="day"><div class="wrap">
-<div class="section-head reveal"><div><div class="eyebrow">03 / The Day</div><h2>하루의 흐름</h2></div><p>08:40 팀별 자리 착석부터 경기와 공연, 폐회식까지. 세부 일정은 운영팀 협의에 따라 일부 변경될 수 있습니다.</p></div>
+<div class="section-head"><div><div class="eyebrow">03 / The Day</div><h2>하루의 흐름</h2></div><p>08:40 팀별 자리 착석부터 경기와 공연, 폐회식까지. 세부 일정은 운영팀 협의에 따라 일부 변경될 수 있습니다.</p></div>
 <div class="timeline">
-<div class="time-item reveal"><time>08:40</time><h3>팀별 착석</h3><p>출석·환자 확인</p></div><div class="time-item reveal delay1"><time>08:50</time><h3>개회식</h3><p>준비운동</p></div><div class="time-item reveal delay2"><time>09:10</time><h3>오전 경기</h3><p>6개 종목</p></div><div class="time-item reveal delay3"><time>12:20</time><h3>점심시간</h3><p>급식실 질서</p></div><div class="time-item reveal"><time>13:10</time><h3>부스·공연</h3><p>협동 퍼포먼스</p></div><div class="time-item reveal delay1"><time>13:50</time><h3>오후 경기</h3><p>4개 종목</p></div><div class="time-item reveal delay2"><time>15:40</time><h3>폐회식</h3><p>성적 발표·시상</p></div>
+<div class="time-item"><time>08:40</time><h3>팀별 착석</h3><p>출석·환자 확인</p></div><div class="time-item"><time>08:50</time><h3>개회식</h3><p>준비운동</p></div><div class="time-item"><time>09:10</time><h3>오전 경기</h3><p>6개 종목</p></div><div class="time-item"><time>12:20</time><h3>점심시간</h3><p>급식실 질서</p></div><div class="time-item"><time>13:10</time><h3>부스·공연</h3><p>협동 퍼포먼스</p></div><div class="time-item"><time>13:50</time><h3>오후 경기</h3><p>4개 종목</p></div><div class="time-item"><time>15:40</time><h3>폐회식</h3><p>성적 발표·시상</p></div>
 </div></div></section>
 <section id="schedule" style="background:#0c1116"><div class="wrap">
-<div class="section-head reveal"><div><div class="eyebrow">04 / Schedule</div><h2>세부 시간표</h2></div><p>경기 진행과 학생 이동 안내 시 참고해 주세요.</p></div>
+<div class="section-head"><div><div class="eyebrow">04 / Schedule</div><h2>세부 시간표</h2></div><p>경기 진행과 학생 이동 안내 시 참고해 주세요.</p></div>
 <div class="schedule">
-<div class="schedule-card reveal"><h3>☀️ 오전 프로그램 <span class="pill">AM</span></h3>
+<div class="schedule-card"><h3>☀️ 오전 프로그램 <span class="pill">AM</span></h3>
 <div class="event"><time>08:50–09:10</time><div><strong>개회식 및 준비운동</strong></div></div>
 <div class="event"><time>09:10–09:40</time><div><strong>청·홍 양면 뒤집기</strong><small>예선 / 결승</small></div></div>
 <div class="event"><time>09:40–10:20</time><div><strong>8자 줄넘기</strong></div></div>
@@ -212,7 +175,7 @@ td:first-child{font-weight:750}
 <div class="event"><time>11:50–12:20</time><div><strong>농구</strong><small>결승 · 창조관 2층</small></div></div>
 <div class="event"><time>12:20–13:40</time><div><strong>점심시간</strong></div></div>
 </div>
-<div class="schedule-card reveal delay1"><h3>🌙 오후 프로그램 <span class="pill">PM</span></h3>
+<div class="schedule-card"><h3>🌙 오후 프로그램 <span class="pill">PM</span></h3>
 <div class="event"><time>13:10–13:40</time><div><strong>스포츠 부스 활동</strong><small>6개 부스</small></div></div>
 <div class="event"><time>13:30–13:45</time><div><strong>문화 공연</strong><small>딜레마 & 플로렌스</small></div></div>
 <div class="event"><time>13:45–13:50</time><div><strong>단체 협동 퍼포먼스</strong><small>「붉은 노을」 댄스 챌린지</small></div></div>
@@ -224,38 +187,38 @@ td:first-child{font-weight:750}
 </div></div>
 </div></section>
 <section id="games"><div class="wrap">
-<div class="section-head reveal"><div><div class="eyebrow">05 / Game Guide</div><h2>경기와 점수</h2></div><p>종목별 참가 인원과 여학생 최소 참가 인원을 확인해 주세요. 경기 방법은 일부 변경될 수 있습니다.</p></div>
+<div class="section-head"><div><div class="eyebrow">05 / Game Guide</div><h2>경기와 점수</h2></div><p>종목별 참가 인원과 여학생 최소 참가 인원을 확인해 주세요. 경기 방법은 일부 변경될 수 있습니다.</p></div>
 <div class="sports-grid">
-<div class="sport reveal"><span class="num">01 / FIELD</span><h3>청·홍 양면 뒤집기</h3><p>운동장 · 학년별 28명(4개 조)<br>여학생: 4개 조 8명 이상</p></div>
-<div class="sport reveal delay1"><span class="num">02 / TEAM</span><h3>8자 줄넘기</h3><p>운동장 · 환자 제외 전원(3개 조)</p></div>
-<div class="sport reveal delay2"><span class="num">03 / RELAY</span><h3>3인 4각 이어달리기</h3><p>운동장 · 조별 27명(학년별 9조)<br>여학생: 3개 조 9명 이상</p></div>
-<div class="sport reveal"><span class="num">04 / POWER</span><h3>전략 줄다리기</h3><p>운동장 · 팀당 60명<br>여학생 10명 이상</p></div>
-<div class="sport reveal delay1"><span class="num">05 / TEAMWORK</span><h3>태풍의 눈</h3><p>운동장 · 조별 28명(학년별 7조)<br>여학생: 4개 조 8명 이상</p></div>
-<div class="sport reveal delay2"><span class="num">06 / COURT</span><h3>농구</h3><p>창조관 2층 · 학년별 8명</p></div>
-<div class="sport reveal"><span class="num">07 / FIELD</span><h3>축구</h3><p>운동장 · 학년별 10명<br>골키퍼 포함 8명 경기</p></div>
-<div class="sport reveal delay1"><span class="num">08 / POWER</span><h3>러닝 줄다리기</h3><p>운동장 · 팀당 60명(여 10·남 50)<br>여학생 10명</p></div>
-<div class="sport reveal delay2"><span class="num">09 / RELAY</span><h3>이어달리기</h3><p>운동장 · 팀당 6명(남 4·여 2)<br>여학생 2명</p></div>
+<div class="sport"><span class="num">01 / FIELD</span><h3>청·홍 양면 뒤집기</h3><p>운동장 · 학년별 28명(4개 조)<br>여학생: 4개 조 8명 이상</p></div>
+<div class="sport"><span class="num">02 / TEAM</span><h3>8자 줄넘기</h3><p>운동장 · 환자 제외 전원(3개 조)</p></div>
+<div class="sport"><span class="num">03 / RELAY</span><h3>3인 4각 이어달리기</h3><p>운동장 · 조별 27명(학년별 9조)<br>여학생: 3개 조 9명 이상</p></div>
+<div class="sport"><span class="num">04 / POWER</span><h3>전략 줄다리기</h3><p>운동장 · 팀당 60명<br>여학생 10명 이상</p></div>
+<div class="sport"><span class="num">05 / TEAMWORK</span><h3>태풍의 눈</h3><p>운동장 · 조별 28명(학년별 7조)<br>여학생: 4개 조 8명 이상</p></div>
+<div class="sport"><span class="num">06 / COURT</span><h3>농구</h3><p>창조관 2층 · 학년별 8명</p></div>
+<div class="sport"><span class="num">07 / FIELD</span><h3>축구</h3><p>운동장 · 학년별 10명<br>골키퍼 포함 8명 경기</p></div>
+<div class="sport"><span class="num">08 / POWER</span><h3>러닝 줄다리기</h3><p>운동장 · 팀당 60명(여 10·남 50)<br>여학생 10명</p></div>
+<div class="sport"><span class="num">09 / RELAY</span><h3>이어달리기</h3><p>운동장 · 팀당 6명(남 4·여 2)<br>여학생 2명</p></div>
 </div>
 <div style="height:36px"></div>
-<div class="section-head reveal"><div><div class="eyebrow">Scoring</div><h2>점수는 이렇게</h2></div><p>학급의 질서와 응원도 팀 점수에 반영됩니다. 최고의 응원과 질서로 모범이 되는 학급에는 베스트 학급상이 수여됩니다.</p></div>
-<div class="score-wrap reveal"><table><thead><tr><th>종목 구분</th><th>1위</th><th>2위</th><th>3위</th><th>4위</th></tr></thead><tbody>
+<div class="section-head"><div><div class="eyebrow">Scoring</div><h2>점수는 이렇게</h2></div><p>학급의 질서와 응원도 팀 점수에 반영됩니다. 최고의 응원과 질서로 모범이 되는 학급에는 베스트 학급상이 수여됩니다.</p></div>
+<div class="score-wrap"><table><thead><tr><th>종목 구분</th><th>1위</th><th>2위</th><th>3위</th><th>4위</th></tr></thead><tbody>
 <tr><td>단체 협동 챌린지</td><td>500</td><td>400</td><td>300</td><td>200</td></tr>
 <tr><td>양면 뒤집기 · 전략 줄다리기 · 러닝 줄다리기</td><td>300</td><td>250</td><td>200</td><td>200</td></tr>
 <tr><td>8자 줄넘기 · 3인 4각 · 태풍의 눈 · 이어달리기</td><td>300</td><td>250</td><td>200</td><td>150</td></tr>
 <tr><td>농구 · 축구</td><td>250</td><td>200</td><td>150</td><td>150</td></tr>
 </tbody></table></div>
-<p class="score-note reveal">추가 점수: 질서 100점 · 응원 100점. 기록 순위별 점수는 중앙 본부석과 학생자치회 단톡방으로 안내합니다.</p>
+<p class="score-note">추가 점수: 질서 100점 · 응원 100점. 기록 순위별 점수는 중앙 본부석과 학생자치회 단톡방으로 안내합니다.</p>
 </div></section>
 <section id="teachers" style="background:#0c1116"><div class="wrap">
-<div class="section-head reveal"><div><div class="eyebrow">06 / Staff Guide</div><h2>선생님 역할</h2></div><p>학생의 위치와 이동을 살피고, 경기 전후 준비운동과 안전 지도를 함께 진행해 주세요.</p></div>
+<div class="section-head"><div><div class="eyebrow">06 / Staff Guide</div><h2>선생님 역할</h2></div><p>학생의 위치와 이동을 살피고, 경기 전후 준비운동과 안전 지도를 함께 진행해 주세요.</p></div>
 <div class="role-grid">
-<article class="role reveal"><div class="icon">🌅</div><h3>아침 · 출석 확인</h3><ul><li>08:40까지 팀별 자리 착석 확인</li><li>출석 점검 및 환자 유무 확인</li><li>복장과 개인 준비물 확인</li></ul></article>
-<article class="role reveal delay1"><div class="icon">🏃</div><h3>경기 전 · 경기 중</h3><ul><li>반별 경기 소집과 퇴장 지도</li><li>체육부장과 준비·정리운동 진행</li><li>관람·응원·이동 질서 관리</li><li>무단외출과 쓰레기 투기 예방</li></ul></article>
-<article class="role reveal delay2"><div class="icon">🧹</div><h3>마무리 · 귀가</h3><ul><li>배정된 자리 정리 및 환경정화</li><li>종례 후 안전한 귀가 지도</li><li>학년부장 안내에 따른 학생 이동 관리</li></ul></article>
+<article class="role"><div class="icon">🌅</div><h3>아침 · 출석 확인</h3><ul><li>08:40까지 팀별 자리 착석 확인</li><li>출석 점검 및 환자 유무 확인</li><li>복장과 개인 준비물 확인</li></ul></article>
+<article class="role"><div class="icon">🏃</div><h3>경기 전 · 경기 중</h3><ul><li>반별 경기 소집과 퇴장 지도</li><li>체육부장과 준비·정리운동 진행</li><li>관람·응원·이동 질서 관리</li><li>무단외출과 쓰레기 투기 예방</li></ul></article>
+<article class="role"><div class="icon">🧹</div><h3>마무리 · 귀가</h3><ul><li>배정된 자리 정리 및 환경정화</li><li>종례 후 안전한 귀가 지도</li><li>학년부장 안내에 따른 학생 이동 관리</li></ul></article>
 </div>
 <div style="height:38px"></div>
-<div class="section-head reveal"><div><div class="eyebrow">Operations</div><h2>주요 업무 분장</h2></div></div>
-<div class="score-wrap reveal"><table><thead><tr><th>업무</th><th>담당</th><th>업무</th><th>담당</th></tr></thead><tbody>
+<div class="section-head"><div><div class="eyebrow">Operations</div><h2>주요 업무 분장</h2></div></div>
+<div class="score-wrap"><table><thead><tr><th>업무</th><th>담당</th><th>업무</th><th>담당</th></tr></thead><tbody>
 <tr><td>대회장</td><td>이해룡 교장선생님</td><td>경기 안내 및 해설</td><td>정진영, 사회자</td></tr>
 <tr><td>위원장</td><td>박정용 교감선생님</td><td>촬영</td><td>한민기</td></tr>
 <tr><td>총괄</td><td>한민기</td><td>종목별 책임자</td><td>정진영, 김민철</td></tr>
@@ -266,14 +229,14 @@ td:first-child{font-weight:750}
 </tbody></table></div>
 </div></section>
 <section id="safety"><div class="wrap">
-<div class="section-head reveal"><div><div class="eyebrow">07 / Safety First</div><h2>안전이 먼저입니다</h2></div><p>학생들이 즐겁게 참여할 수 있도록 몸 상태를 살피고, 이동과 관람 질서를 함께 지도해 주세요.</p></div>
+<div class="section-head"><div><div class="eyebrow">07 / Safety First</div><h2>안전이 먼저입니다</h2></div><p>학생들이 즐겁게 참여할 수 있도록 몸 상태를 살피고, 이동과 관람 질서를 함께 지도해 주세요.</p></div>
 <div class="safety">
-<div class="safety-card reveal"><h3>🩹 부상 학생 발생 시</h3><ol><li>부상 상태 확인(가벼움 / 심함)</li><li>가벼운 부상은 현장 교사 판단 후 보건교사 치료</li><li>중증이면 부상 정도와 의식 확인</li><li>필요 시 119·병원 이송, 교사 1인 동행 및 보호자 연락</li></ol><p style="color:var(--muted);font-size:.82rem">건강이 좋지 않은 학생은 담임·보건교사와 협의해 참가 여부를 정합니다. 보건교사는 보건실에 상주합니다.</p></div>
-<div class="safety-card warning reveal delay1"><h3>🌧️ 우천 시 안내</h3><ul><li>연기·변경은 당일 07:30 기상 상황을 보고 대회장이 결정합니다.</li><li><strong>심한 우천:</strong> 10/30(금)은 금요일 수업으로 운영하고, 스포츠한마당은 11/2(월)로 변경합니다.</li><li><strong>약한 우천:</strong> 학년별로 창조관에서 오전 종목을 진행합니다.</li><li>일정 변경은 문자와 기숙사 방송으로 안내합니다.</li></ul></div>
+<div class="safety-card"><h3>🩹 부상 학생 발생 시</h3><ol><li>부상 상태 확인(가벼움 / 심함)</li><li>가벼운 부상은 현장 교사 판단 후 보건교사 치료</li><li>중증이면 부상 정도와 의식 확인</li><li>필요 시 119·병원 이송, 교사 1인 동행 및 보호자 연락</li></ol><p style="color:var(--muted);font-size:.82rem">건강이 좋지 않은 학생은 담임·보건교사와 협의해 참가 여부를 정합니다. 보건교사는 보건실에 상주합니다.</p></div>
+<div class="safety-card warning"><h3>🌧️ 우천 시 안내</h3><ul><li>연기·변경은 당일 07:30 기상 상황을 보고 대회장이 결정합니다.</li><li><strong>심한 우천:</strong> 10/30(금)은 금요일 수업으로 운영하고, 스포츠한마당은 11/2(월)로 변경합니다.</li><li><strong>약한 우천:</strong> 학년별로 창조관에서 오전 종목을 진행합니다.</li><li>일정 변경은 문자와 기숙사 방송으로 안내합니다.</li></ul></div>
 </div>
 <div style="height:38px"></div>
-<div class="section-head reveal"><div><div class="eyebrow">Before the Day</div><h2>대회 전날 체크리스트</h2></div><p>항목을 누르면 체크할 수 있습니다. 체크 상태는 이 페이지를 새로고침하면 초기화됩니다.</p></div>
-<div class="checklist reveal">
+<div class="section-head"><div><div class="eyebrow">Before the Day</div><h2>대회 전날 체크리스트</h2></div><p>항목을 누르면 체크할 수 있습니다. 체크 상태는 이 페이지를 새로고침하면 초기화됩니다.</p></div>
+<div class="checklist">
 <label class="check"><input type="checkbox">우리 반의 팀과 응원 자리를 안내했나요?</label>
 <label class="check"><input type="checkbox">모든 학생이 3종목 이상 참가하도록 확인했나요?</label>
 <label class="check"><input type="checkbox">체육복 또는 반티, 운동화를 안내했나요?</label>
@@ -282,7 +245,7 @@ td:first-child{font-weight:750}
 <label class="check"><input type="checkbox">학생들이 즐겁고 안전하게 참여할 준비가 되었나요?</label>
 </div>
 </div></section>
-<section class="closing"><div class="wrap reveal"><div class="eyebrow">One Team, One Heart</div><h2>함께라서<br>행복합니다.</h2><p>「합」 — 우리 모두가 함께 만드는 스포츠한마당</p><p style="margin-top:30px">교직원 여러분, 감사합니다.</p></div></section>
+<section class="closing"><div class="wrap"><div class="eyebrow">One Team, One Heart</div><h2>함께라서<br>행복합니다.</h2><p>「합」 — 우리 모두가 함께 만드는 스포츠한마당</p><p style="margin-top:30px">교직원 여러분, 감사합니다.</p></div></section>
 </main>
 <footer class="footer"><div class="wrap footer-inner"><span>© 2026 GSHS SPORTS DAY · STAFF GUIDE</span><span>본 페이지는 교직원 안내자료를 바탕으로 제작한 웹 안내 페이지입니다.</span></div></footer>
 <button class="top-btn" id="topBtn" aria-label="맨 위로">↑</button>
@@ -292,8 +255,8 @@ td:first-child{font-weight:750}
 <script>
 // 1. Lenis 관성 스크롤 초기화
 const lenis = new Lenis({
-  duration: 1.2,     // 스크롤 관성 감도 (숫자가 클수록 더 부드럽고 길게 남음)
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // 부드러운 감속 알고리즘
+  duration: 1.2,     // 스크롤 관성 감도
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
   touchMultiplier: 1.5,
 });
@@ -318,34 +281,7 @@ lenis.on('scroll', (e) => {
   topBtn.classList.toggle('show', scrollY > 500);
 });
 
-// 3. IntersectionObserver: 멀어지면 희미해지고, 들어오면 선명해지는 효과
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const el = entry.target;
-    if (entry.isIntersecting) {
-      el.classList.add('visible');
-      el.classList.remove('fade-away-top', 'fade-away-bottom');
-    } else {
-      const rect = entry.boundingClientRect;
-      el.classList.remove('visible');
-      // 화면 위로 벗어났을 때와 아래로 벗어났을 때 구분하여 애니메이션 적용
-      if (rect.top < 0) {
-        el.classList.add('fade-away-top');
-        el.classList.remove('fade-away-bottom');
-      } else {
-        el.classList.add('fade-away-bottom');
-        el.classList.remove('fade-away-top');
-      }
-    }
-  });
-}, {
-  threshold: 0.1,
-  rootMargin: '-5% 0px -5% 0px'
-});
-
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-// 4. 모바일 메뉴 & 앵커 스크롤 연동
+// 3. 모바일 메뉴 & 앵커 스크롤 연동
 const menuBtn = document.getElementById('menuBtn');
 const links = document.getElementById('navLinks');
 
